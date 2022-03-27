@@ -10,9 +10,12 @@ using namespace std;
 using namespace ariel;
 
 const int MaxRowLen = 100;
+const int minAscii = 32;
+const int maxAscii = 126;
 
 bool Notebook ::invokeThrow(int page, int row, int col)
 {
+
     return this->notebook[page].is_notValid(row, col);
 }
 
@@ -28,14 +31,19 @@ bool Notebook::checkValidation(int page, int row, int col, Direction dir, string
     }
 
     int strlen = note.length();
-    if (col > MaxRowLen || (dir == Direction::Horizontal && ((col + strlen > MaxRowLen) || len > MaxRowLen || (col + len > MaxRowLen))))
+    if (col >= MaxRowLen || (dir == Direction::Horizontal && ((col + strlen > MaxRowLen) || len > MaxRowLen || (col + len > MaxRowLen))))
     {
         return false;
     }
-
-    for (int i = 0; i < note.length(); i++)
+    // for(char& c : str) {
+    //     do_things_with(c);
+    // }
+    for (char c : note)
     {
-        if (invokeThrow(page, row, col))
+
+        // int c =
+
+        if (invokeThrow(page, row, col) || !(int(c) >= minAscii && int(c) <= maxAscii))
         {
             return false;
         }

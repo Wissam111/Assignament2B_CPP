@@ -88,4 +88,3 @@ TEST_CASE("Sides Test")
     CHECK(notebook.read(2, 0, 4, Direction::Vertical, 7) == string("____F__"));
     CHECK(notebook.read(2, 0, 5, Direction::Vertical, 7) == string("_____O_"));
     CHECK(notebook.read(2, 0, 6, Direction::Vertical, 7) == string("______X"));
-}
