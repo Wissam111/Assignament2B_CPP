@@ -35,13 +35,9 @@ bool Notebook::checkValidation(int page, int row, int col, Direction dir, string
     {
         return false;
     }
-    // for(char& c : str) {
-    //     do_things_with(c);
-    // }
+
     for (char c : note)
     {
-
-        // int c =
 
         if (invokeThrow(page, row, col) || !(int(c) >= minAscii && int(c) <= maxAscii))
         {
